@@ -4,9 +4,12 @@
 #include<stdlib.h>
 #include<string.h>
 #include "bytes.h"
+#ifdef __WIN32__
+#include<stdint.h>
+#endif
 int main(int argc,char *argv[]){
     if(argc==1){
-        printf("error");
+        printf("error, need file name");
 return 1;
     }        
 else if( strcmp("-v",argv[1])==0){
@@ -20,7 +23,7 @@ fprintf(stderr,"error while loading the file");
 return 1;
 }
         fseek(f,0,SEEK_END);
-        size_t *a=malloc(sizeof(size_t));
+        int64_t *a=malloc(sizeof(int64_t));
         *a=ftell(f);
 char* converted=format_bytes(*a);
         printf("opened only file and it's %s",converted);
@@ -29,22 +32,22 @@ char* converted=format_bytes(*a);
 else{
 FILE *f=fopen(argv[1],"RB");
 if(f==NULL){
-    fprintf(stderr,"error while loading the file");
+    fprintf(stderr,"error while loading the first file");
     return 1;
     }    
 fseek(f,0,SEEK_END);
-size_t *a=malloc(sizeof(size_t));
+int64_t *a=malloc(sizeof(int64_t));
 *a=ftell(f);
 char* *converteda=malloc(50);
 *converteda=format_bytes(*a);
 fclose(f);
 f=fopen(argv[2],"RB");
 if(f==NULL){
-    fprintf(stderr,"error while loading the file");
+    fprintf(stderr,"error while loading the second file");
     return 1;
     }    
 fseek(f,0,SEEK_END);
-size_t *b=malloc(sizeof(size_t));
+int64_t *b=malloc(sizeof(int64_t));
 *b=ftell(f);
 char* *convertedb=malloc(50);
 *convertedb=format_bytes(*b);
