@@ -1,7 +1,4 @@
 //cmpsize
-#ifdef __WIN32
-#include<inttypes.h>
-#endif
 #include<stdio.h>
 #include "utils.h"
 #include<stdlib.h>
@@ -36,7 +33,7 @@ if(f==NULL){
     return 1;
     }    
 fseek(f,0,SEEK_END);
-int64_t *a=malloc(sizeof(int64_t));
+size_t *a=malloc(sizeof(int64_t));
 *a=ftell(f);
 char* *converteda=malloc(50);
 *converteda=format_bytes(*a);
@@ -47,7 +44,7 @@ if(f==NULL){
     return 1;
     }    
 fseek(f,0,SEEK_END);
-int64_t *b=malloc(sizeof(int64_t));
+size_t *b=malloc(sizeof(int64_t));
 *b=ftell(f);
 char* *convertedb=malloc(50);
 *convertedb=format_bytes(*b);
