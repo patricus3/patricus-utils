@@ -33,7 +33,7 @@ if(f==NULL){
     return 1;
     }    
 fseek(f,0,SEEK_END);
-size_t *a=malloc(sizeof(int64_t));
+size_t *a=malloc(sizeof(size_t));
 *a=ftell(f);
 char* *converteda=malloc(50);
 *converteda=format_bytes(*a);
@@ -44,7 +44,7 @@ if(f==NULL){
     return 1;
     }    
 fseek(f,0,SEEK_END);
-size_t *b=malloc(sizeof(int64_t));
+size_t *b=malloc(sizeof(size_t));
 *b=ftell(f);
 char* *convertedb=malloc(50);
 *convertedb=format_bytes(*b);
