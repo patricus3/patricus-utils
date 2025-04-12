@@ -20,7 +20,7 @@ fprintf(stderr,"error while loading the file");
 return 1;
 }
         fseek(f,0,SEEK_END);
-        size_t *a=malloc(sizeof(int64_t));
+        size_t *a=malloc(sizeof(size_t));
         *a=ftell(f);
 char* converted=format_bytes(*a);
         printf("opened only file and it's %s",converted);
