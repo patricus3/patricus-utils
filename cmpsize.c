@@ -1,5 +1,7 @@
 //cmpsize
-#pragma pack(push,1)
+#ifdef __WIN32
+#include<inttypes.h>
+#endif
 #include<stdio.h>
 #include "utils.h"
 #include<stdlib.h>
