@@ -1,4 +1,5 @@
 //cmpsize
+#pragma pack(push,1)
 #include<stdio.h>
 #include "utils.h"
 #include<stdlib.h>

@@ -1,4 +1,7 @@
-#define version "3.2"
-#ifndef __COSMOPOLITAN__
-#error "this suite won't compile properly using that compiller."
+#ifdef __cosmo__
+#error "cosmopolitan libc got banned from usage, use clang from homebrew for macOS or msvc for windows"
 #endif
+#ifdef __linux__
+#error "linux isn't supported."
+#endif
+#define version "3.2"

@@ -1,11 +1,12 @@
+#pragma pack(push, 1)
 #include"utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include<sys/stat.h>
 #include<string.h>
 int main(int argc,char *argv[])
-{
-#ifdef beta
+{;
+    #ifdef beta
 ShowCrashReports();
 #endif
     if(argc==1) {

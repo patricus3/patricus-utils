@@ -1,26 +1,20 @@
-CFLAGS =
 all: build/cat build/cmpsize
-
-# Beta build target (adds -DBETA)
-beta: CFLAGS += -DBETA
-beta: all
-
 # cat target
 build/cat: cat.o | build
-	cosmocc $(CFLAGS) cat.o -o $@
+	clang $(CFLAGS) cat.o -o $@
 
 cat.o: cat.c
-	cosmocc $(CFLAGS) -c $< -o $@
+	clang $(CFLAGS) -c $< -o $@
 
 # cmpsize target
 build/cmpsize: cmpsize.o bytes.o | build
-	cosmocc $(CFLAGS) cmpsize.o bytes.o -o $@
+	clang $(CFLAGS) cmpsize.o bytes.o -o $@
 
 cmpsize.o: cmpsize.c
-	cosmocc $(CFLAGS) -c $< -o $@
+	clang $(CFLAGS) -c $< -o $@
 
 bytes.o: bytes.c
-	cosmocc $(CFLAGS) -c $< -o $@
+	clang $(CFLAGS) -c $< -o $@
 
 # Ensure build dir exists
 build:
