@@ -4,9 +4,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include "bytes.h"
-#ifdef __WIN32__
 #include<stdint.h>
-#endif
 int main(int argc,char *argv[]){
     if(argc==1){
         printf("error, need file name");
