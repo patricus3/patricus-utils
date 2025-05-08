@@ -17,7 +17,7 @@ else if( strcmp("-v",argv[1])==0){
         else if(argc==2){
         FILE *f=fopen(argv[1],"RB");
 if(f==NULL){
-fprintf(stderr,"error while loading the file");
+perror("error while loading the file");
 return 1;
 }
         fseek(f,0,SEEK_END);
@@ -30,7 +30,7 @@ char* converted=format_bytes(*a);
 else{
 FILE *f=fopen(argv[1],"RB");
 if(f==NULL){
-    fprintf(stderr,"error while loading the first file");
+    perror("error while loading the first file");
     return 1;
     }    
 fseek(f,0,SEEK_END);
@@ -41,7 +41,7 @@ char* *converteda=malloc(50);
 fclose(f);
 f=fopen(argv[2],"RB");
 if(f==NULL){
-    fprintf(stderr,"error while loading the second file");
+    perror("error while loading the second file");
     return 1;
     }    
 fseek(f,0,SEEK_END);
