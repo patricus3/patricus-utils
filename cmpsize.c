@@ -15,7 +15,7 @@ else if( strcmp("-v",argv[1])==0){
         return 0;
         }       
         else if(argc==2){
-        FILE *f=fopen(argv[1],"RB");
+        FILE *f=fopen(argv[1],"rb");
 if(f==NULL){
 perror("error while loading the file");
 return 1;
@@ -28,7 +28,7 @@ char* converted=format_bytes(*a);
         return 0;
 }
 else{
-FILE *f=fopen(argv[1],"RB");
+FILE *f=fopen(argv[1],"rb");
 if(f==NULL){
     perror("error while loading the first file");
     return 1;
@@ -39,7 +39,7 @@ int64_t *a=malloc(sizeof(int64_t));
 char* *converteda=malloc(50);
 *converteda=format_bytes(*a);
 fclose(f);
-f=fopen(argv[2],"RB");
+f=fopen(argv[2],"rb");
 if(f==NULL){
     perror("error while loading the second file");
     return 1;
@@ -57,7 +57,7 @@ else if(*b>*a){
 printf("second file is bigger, %s the first is %s",*convertedb,*converteda);
 }
 else{
-printf("they'ree equal, %lld",*a);
+printf("they'ree equal, %s",*converteda);
 }
 free(a);free(b);free(converteda);free(convertedb);
 //we free the memory so we don't leak it by accident, + we get more control on when it gets freed, it's 16 bytes after all, not much but always something.
