@@ -1,4 +1,3 @@
-#pragma pack(push, 1)
 #include"utils.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,9 +5,6 @@
 #include<string.h>
 int main(int argc,char *argv[])
 {;
-    #ifdef beta
-ShowCrashReports();
-#endif
     if(argc==1) {
         char *noargs=malloc(1);
         int bytes;
