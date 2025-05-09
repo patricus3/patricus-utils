@@ -18,13 +18,17 @@ printf("%c",*noargs);
         }
 free(noargs);
         return 0;
-    }
-    if(strcmp(argv[1],"-v")==0)
+}
+if(strcmp(argv[1],"-v")==0)
      {
         printf("patricus utils, version %s",version);
         return 0;
-     }
+}
 for(int meowing=1;meowing<argc;meowing++){
+if(strcmp(argv[meowing ],"-u")==0)
+{
+continue;
+}
     FILE *f=fopen(argv[meowing],"r");
 //opening a file from cli arguments
     struct stat filecheck;
